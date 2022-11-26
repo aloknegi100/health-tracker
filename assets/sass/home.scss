@@ -51,6 +51,9 @@
     flex-flow: initial;
     padding: 5px;
     padding-left: 10px;
+    :hover {
+      background-color: orangered;
+    }
 
     div {
       display: inline;
