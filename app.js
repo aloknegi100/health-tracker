@@ -3,13 +3,11 @@ const express = require("express");
 const path = require("path");
 const sassMiddleware = require("node-sass-middleware");
 const app = express();
-const moment = require("moment");
+
 const mongoose = require("mongoose");
 const db = require("./config/mongoose");
 const expressLayout = require("express-ejs-layouts");
 const port = process.env.PORT || 8000;
-
-moment().format();
 
 // ------SCSS ------//
 app.use(
@@ -26,7 +24,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 // ------Statics files ------ //
 app.use(express.static(path.join(__dirname, "./assets")));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // ----------EJS-----------//
 app.set("view engine", "ejs");
